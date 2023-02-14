@@ -1,0 +1,29 @@
+<%- include('../common/header.ejs') %>
+<%- include('../common/nav.ejs'); %>
+<div class="container">
+
+<h1>Edit user</h1>
+<img src="/userImges/<%= user.image %>" alt="userImges/<%= user.image %>" width="100px" height="100px" srcset="">
+
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="user_id" value="<%= user._id %>">
+    <input type="file" name="image">
+    <br><br>
+    <input type="text" name="name" value="<%= user.name %>" >
+    <br><br>
+    <input type="email" name="email" value="<%= user.email %>" >
+    <br><br>
+    <input type="number" name="mno" value="<%= user.mobile %>" >
+    <br><br>
+    <label for="">Verified</label>
+    <input type="radio" name="verify" value="1" <% if(user.is_varified == 1){ %> checked <% } %> >
+    <label for="">Unverified</label>
+    <input type="radio" name="verify" value="0" <% if(user.is_varified == 0){ %> checked <% } %>>
+    <br><br>
+    <input type="submit" class="btn btn-primary" value="Update User">
+
+ </form>
+ <br>
+ <a href="/admin/">Go Dashboard</a>
+</div>
+<%- include('../common/footer.ejs') %>

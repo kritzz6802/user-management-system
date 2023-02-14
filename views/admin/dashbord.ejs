@@ -1,0 +1,74 @@
+<%- include('../common/header.ejs') %>
+<%- include('../common/nav.ejs'); %>
+<div class="container">
+  <h1>Dashboard</h1>
+
+ <a href="/admin/new-user" class="btn btn-primary">Add new user</a>
+ <a href="/admin/export-excel" class="btn btn-success">Export Excelsheet</a>
+ <a href="/admin/export-pdf" class="btn btn-danger">Export Pdf</a>
+ <br><br><br>
+<form action="">
+  <input type="text" name="search" id="" placeholder="Search name ,email,mobile">
+  <input type="submit" value="Search" class="text-center">
+</form>
+
+<br>
+  <table class="table text-center" width="50%" border="2px solid black">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Image</th>
+      <th>Verified</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+</thead>
+    <% if(users.length>0){
+  for(let i=0;i<users.length;i++){ %>
+    <tr>
+      <td>
+        <%= users[i].name %>
+      </td>
+      <td>
+        <%= users[i].email %>
+      </td>
+      <td>
+        <%= users[i].mobile %>
+      </td>
+      <td><img src="/userImges/<%= users[i].image %>" alt="<%= users[i].image %>" width="100px" height="100px"></td>
+      <td>
+        <% if(users[i].is_varified==0){ %>
+        <p>Not Verified</p>
+        <% }else{ %>
+        <p>Verified</p>
+        <% } %>
+      </td>
+      <td><a href="/admin/edit-user?id=<%= users[i]._id %>" class="btn btn-outline-primary">Edit</a></td>
+      <td><a href="/admin/dlt-user?id=<%= users[i]._id %>" class="btn btn-outline-danger">Delete</a></td>
+    </tr>
+    <% } }else{ %>
+    <tr>
+      <td colspan="7">Users not fouund</td>
+    </tr>
+    <% } %>
+
+  </table>
+<br>
+<div class="text-center">
+<%
+for(let j=1;j<=totalpages;j++){
+%>
+<a href="?page=<%= j %>" class="text-center link-danger"><%= j %></a>
+<%
+}
+%>
+</div>
+<br><br>
+  <a href="/admin/home">Home</a>
+<a href="/admin/logout">Logout</a>
+</div>
+
+
+<%- include('../common/footer.ejs') %>

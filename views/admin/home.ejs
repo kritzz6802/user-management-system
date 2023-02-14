@@ -1,0 +1,23 @@
+
+<%- include ('../common/header.ejs') %>
+<h1>welcom <%= admin.name %></h1>
+
+<a href="/admin/dashbord">dashbord</a>
+
+<table width="50%" border="2px solid black">
+    <tr>
+        <!-- <td>Image</td> -->
+        <td><img src="/userImges/<%= admin.image %>" width="150px" height="150px" alt="userImges/<%= admin.image %>" srcset=""></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><%= admin.email %></td>
+    </tr>
+    <tr>
+        <td>Mobile</td>
+        <td><%= admin.mobile %></td>
+    </tr>
+
+</table>
+<a href="/admin/logout">logout</a>
+<%- include ('../common/footer.ejs') %>

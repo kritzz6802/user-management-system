@@ -1,0 +1,17 @@
+<%- include('../common/header.ejs') %>
+<%- include('../common/nav.ejs'); %>
+<div class="container">
+
+<h1>Forget </h1>
+  <% if(typeof message !== 'undefined'){%>
+        <h4 style="color: green;"><%= message %></h4>
+        <% } %>
+<form action="/forget" method="post">
+
+    <input type="email" name="email" placeholder="Enter Email" required>
+    <br><br>
+    <input type="submit" class="btn btn-primary" value="send Reset Link">
+
+ </form>
+</div>
+<%- include('../common/footer.ejs') %>

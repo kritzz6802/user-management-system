@@ -1,0 +1,27 @@
+<%- include('../common/header.ejs') %>
+<%- include('../common/nav.ejs') %>
+<div class="container">
+<h1>wellcome home</h1>
+<h3><%= user.name %></h3>
+<table width="50%" border="2px solid black">
+    <tr>
+        <!-- <td>Image</td> -->
+        <td><img src="userImges/<%= user.image %>" alt="userImges/<%= user.image %>" srcset=""></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><%= user.email %></td>
+    </tr>
+    <tr>
+        <td>Mobile</td>
+        <td><%= user.mobile %></td>
+    </tr>
+    <tr>
+        <td>verified</td>
+        <td>yes</td>
+    </tr>
+</table>
+<a href="/edit?id=<%= user._id %>">Edit</a><br>
+<a href="/logout"><button class="btn btn-primary">Logout</button></a>
+</div>
+<%- include('../common/footer.ejs') %>
